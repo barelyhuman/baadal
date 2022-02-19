@@ -1,0 +1,6 @@
+pre-commit:
+  parallel: true
+  commands:
+    formatted:
+      glob: "*.{js,ts,md,json}"
+      run: yarn fix {staged_files}; git add {staged_files}

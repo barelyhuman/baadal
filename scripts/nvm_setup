@@ -1,0 +1,15 @@
+#!/bin/sh
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+PROJECT_DIR="${SCRIPT_DIR}/.."
+
+NODE_VER="$(cat ${PROJECT_DIR}/.nvmrc)"
+
+# check if nvm exits
+if [[ -f "${HOME}/.nvm/nvm.sh" ]]; then
+  # get the defaults if it exists
+  source "${HOME}/.nvm/nvm.sh"
+fi
+
+# install the version pointed by .nvmrc
+nvm install "$NODE_VER"
+nvm use "$NODE_VER"

@@ -28,7 +28,7 @@ The production build can be generated using `scripts/release-android` , You'll n
 2. Drag drop the above bundle into the upload zone and wait for it to upload
 3. Use `scripts/changelog` to get a changelog from the existing commits and modify those with whatever aligns with the changes that've been made
 
-## Deploy Backend
+## Deploy Backend / Web
 
 Backend production deployments might be handled by one of your mentors or if you're one of mentors then the flow is as follows
 
