@@ -39,4 +39,5 @@ model User {
   usernameTwo String   @default("")
   posts       Post[]
   profile     Profile?
+  gender      String
 }

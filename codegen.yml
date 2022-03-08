@@ -1,0 +1,9 @@
+overwrite: true
+schema: './schema.gql'
+documents: 'client/sdk/documents/**/*.gql'
+generates:
+  client/sdk/generated.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-generic-sdk'

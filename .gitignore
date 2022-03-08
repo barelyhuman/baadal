@@ -34,3 +34,6 @@ yarn-error.log*
 # vercel
 .vercel
 
+# graphql generated 
+graphql/generated
+client/sdk/generated.ts
