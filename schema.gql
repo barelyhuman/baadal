@@ -52,6 +52,14 @@ input DateTimeFilter {
   notIn: [DateTime!]
 }
 
+input IntFieldUpdateOperationsInput {
+  decrement: Int
+  divide: Int
+  increment: Int
+  multiply: Int
+  set: Int
+}
+
 input IntFilter {
   equals: Int
   gt: Int
@@ -658,20 +666,22 @@ input StringWithAggregatesFilter {
 type User {
   _count: UserCount
   email: String!
-  gender: String!
+  gender: Int!
+  genderLabel: String!
   id: Int!
   name: String
   posts(cursor: PostWhereUniqueInput, distinct: [PostScalarFieldEnum!], orderBy: [PostOrderByWithRelationInput!], skip: Int, take: Int, where: PostWhereInput): [Post!]!
   profile: Profile
-  roleLabel: String!
   usernameTwo: String!
 }
 
 type UserAvgAggregate {
+  gender: Float
   id: Float
 }
 
 input UserAvgOrderByAggregateInput {
+  gender: SortOrder
   id: SortOrder
 }
 
@@ -698,7 +708,7 @@ input UserCountOrderByAggregateInput {
 
 input UserCreateInput {
   email: String!
-  gender: String!
+  gender: Int!
   name: String
   posts: PostCreateNestedManyWithoutAuthorInput
   profile: ProfileCreateNestedOneWithoutUserInput
@@ -707,7 +717,7 @@ input UserCreateInput {
 
 input UserCreateManyInput {
   email: String!
-  gender: String!
+  gender: Int!
   id: Int
   name: String
   usernameTwo: String
@@ -726,7 +736,7 @@ input UserCreateOrConnectWithoutProfileInput {
 
 input UserCreateWithoutProfileInput {
   email: String!
-  gender: String!
+  gender: Int!
   name: String
   posts: PostCreateNestedManyWithoutAuthorInput
   usernameTwo: String
@@ -739,7 +749,7 @@ type UserGroupBy {
   _min: UserMinAggregate
   _sum: UserSumAggregate
   email: String!
-  gender: String!
+  gender: Int!
   id: Int!
   name: String
   usernameTwo: String!
@@ -747,7 +757,7 @@ type UserGroupBy {
 
 type UserMaxAggregate {
   email: String
-  gender: String
+  gender: Int
   id: Int
   name: String
   usernameTwo: String
@@ -763,7 +773,7 @@ input UserMaxOrderByAggregateInput {
 
 type UserMinAggregate {
   email: String
-  gender: String
+  gender: Int
   id: Int
   name: String
   usernameTwo: String
@@ -816,7 +826,7 @@ enum UserScalarFieldEnum {
 input UserScalarWhereWithAggregatesInput {
   AND: [UserScalarWhereWithAggregatesInput!]
   email: StringWithAggregatesFilter
-  gender: StringWithAggregatesFilter
+  gender: IntWithAggregatesFilter
   id: IntWithAggregatesFilter
   name: StringNullableWithAggregatesFilter
   NOT: [UserScalarWhereWithAggregatesInput!]
@@ -825,16 +835,18 @@ input UserScalarWhereWithAggregatesInput {
 }
 
 type UserSumAggregate {
+  gender: Int
   id: Int
 }
 
 input UserSumOrderByAggregateInput {
+  gender: SortOrder
   id: SortOrder
 }
 
 input UserUpdateInput {
   email: StringFieldUpdateOperationsInput
-  gender: StringFieldUpdateOperationsInput
+  gender: IntFieldUpdateOperationsInput
   name: NullableStringFieldUpdateOperationsInput
   posts: PostUpdateManyWithoutAuthorInput
   profile: ProfileUpdateOneWithoutUserInput
@@ -843,7 +855,7 @@ input UserUpdateInput {
 
 input UserUpdateManyMutationInput {
   email: StringFieldUpdateOperationsInput
-  gender: StringFieldUpdateOperationsInput
+  gender: IntFieldUpdateOperationsInput
   name: NullableStringFieldUpdateOperationsInput
   usernameTwo: StringFieldUpdateOperationsInput
 }
@@ -858,7 +870,7 @@ input UserUpdateOneRequiredWithoutProfileInput {
 
 input UserUpdateWithoutProfileInput {
   email: StringFieldUpdateOperationsInput
-  gender: StringFieldUpdateOperationsInput
+  gender: IntFieldUpdateOperationsInput
   name: NullableStringFieldUpdateOperationsInput
   posts: PostUpdateManyWithoutAuthorInput
   usernameTwo: StringFieldUpdateOperationsInput
@@ -872,7 +884,7 @@ input UserUpsertWithoutProfileInput {
 input UserWhereInput {
   AND: [UserWhereInput!]
   email: StringFilter
-  gender: StringFilter
+  gender: IntFilter
   id: IntFilter
   name: StringNullableFilter
   NOT: [UserWhereInput!]

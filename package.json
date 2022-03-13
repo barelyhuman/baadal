@@ -5,8 +5,9 @@
 	"scripts": {
 		"build": "next build",
 		"clean": "rm -rf .next; rm -rf node_modules/@generated",
-		"dev": "run-s g:options next:dev",
+		"dev": "node boot/boot.js --dev",
 		"next:dev": "next dev",
+		"next:build": "next build",
 		"fix": "prettier --write",
 		"g": "run-s g:*",
 		"g:graphql": "graphql-codegen --config codegen.yml",

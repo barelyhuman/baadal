@@ -75,23 +75,23 @@ const graphqlHandler: NextApiHandler = async (req, res) => {
 			schema: schema,
 			// add authentication using context modification
 			// the below is some example code for the same
-			// contextFactory: async context => {
-			// 	// const token: string | undefined =
-			// 	// 	// @ts-ignore
-			// 	// 	context.request.headers[AUTH_HEADER] ||
-			// 	// 	// @ts-ignore
-			// 	// 	context.request.headers[AUTH_HEADER.toLowerCase()]
-			// 	// let user
-			// 	// if (token) {
-			// 	// 	user = await getUserForToken(token)
-			// 	// }
-			// 	// return {
-			// 	// 	...context,
-			// 	// 	prisma: prismaClient,
-			// 	// 	options,
-			// 	// 	user: user,
-			// 	// }
-			// },
+			contextFactory: async context => {
+				// const token: string | undefined =
+				// 	// @ts-ignore
+				// 	context.request.headers[AUTH_HEADER] ||
+				// 	// @ts-ignore
+				// 	context.request.headers[AUTH_HEADER.toLowerCase()]
+				// let user
+				// if (token) {
+				// 	user = await getUserForToken(token)
+				// }
+				return {
+					...context,
+					prisma: prismaClient,
+					options,
+					// user: user,
+				}
+			},
 		})
 
 		return sendResult(result, res)
