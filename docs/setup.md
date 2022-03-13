@@ -68,6 +68,28 @@ You can use the extension id's in the bracket to search for the exact plugin
 
 - [Working with GIT](/docs/working-with-git.md)
 
+## All Docs / Reference
+
+#### Help / Standards
+
+- [Working with GIT](/docs/working-with-git.md)
+
+#### Workflow
+
+- [Adding new features](/docs/adding-new-features.md)
+- [Options and adding options](/docs/options-and-adding-options.md)
+- [Generating Client API SDK](/docs/generating-client-api-sdk.md)
+
+#### Releases
+
+- [Preparing for release](/docs/preparing-for-release.md)
+- [Release Cycles](/docs/release-cycles.md)
+- [Beta Releases](/docs/beta-releases.md)
+
+#### Others
+
+- [Troubleshooting](/docs/troubleshooting.md)
+
 ## FAQ
 
 ** Why not use fnm instead of nvm ? **

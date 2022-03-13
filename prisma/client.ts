@@ -1,31 +1,16 @@
 import {PrismaClient} from '@prisma/client'
-import {findOptionByValue, options} from 'constants/options'
+import knex from 'knex'
 
-export const prismaClient = new PrismaClient()
+function createFallbackClient() {
+	return knex({
+		client: 'pg',
+		connection: process.env.DATABASE_URL,
+	})
+}
 
-// prismaClient.$use(async (params, next) => {
-// 	const response = await next(params)
-// 	let through = response
-// 	if (!Array.isArray(response)) {
-// 		through = []
-// 		through.push(response)
-// 	}
+function createPrismaClient() {
+	return new PrismaClient()
+}
 
-// 	let result: any = []
-// 	for (let value of through) {
-// 		const optionsKeys = Object.keys(value).filter(x => x.includes('OptionId'))
-// 		optionsKeys.forEach(optionKey => {
-// 			const withoutIdentifier = optionKey.split('OptionId')[0]
-// 			const identifier = value[optionKey]
-// 			const optionValue = value[withoutIdentifier]
-// 			const option = findOptionByValue(identifier, optionValue)
-// 			value.roleLabel = option.label
-// 		})
-// 		result.push(value)
-// 	}
-
-// 	return result.map((item: any) => {
-// 		item.x = 'y'
-// 		return item
-// 	})
-// })
+export const prismaClient = createPrismaClient()
+export const fallBackDBClient = createFallbackClient()
