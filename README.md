@@ -1,4 +1,4 @@
-# genbase
+# baadal
 
 A set of utilities combined to make writing crud API's a ton easier, while keeping the extensibility and control of coding from scratch
 
