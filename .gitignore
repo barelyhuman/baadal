@@ -37,3 +37,6 @@ yarn-error.log*
 # graphql generated 
 graphql/generated
 client/sdk/generated.ts
+
+# local file storage 
+uploaded-files
