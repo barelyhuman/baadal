@@ -24,7 +24,7 @@ interface SDK extends GeneratedSDKType {
 	authorizeSpotify: (query: string) => Promise<any>
 }
 
-export const musyncSDK: SDK = Object.assign({}, generatedSDK, {
+export const clientSDK: SDK = Object.assign({}, generatedSDK, {
 	authorizeSpotify(queryParams: string) {
 		const urlSP = new URLSearchParams(queryParams)
 		const headers: any = {}

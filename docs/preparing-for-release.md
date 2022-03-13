@@ -2,7 +2,7 @@
 
 **Note: Make sure you are available for bug fixes for at least a couple of hours after release in case it's needed**
 
-- Change Versions in all package.jsons, this includes mobile, web, and backend. In this stack backend being same as web. If possible use, `npm version` to generate a new commit and tag the state.
+- Change Versions in all package.json files, this includes mobile, web, and backend. In this stack backend being same as web. If possible use, `npm version` to generate a new commit and tag the state.
 
 **IT IS VERY IMPORTANT TO TAG BUILDS AS THIS IS USED TO GENERATE CHANGELOGS AND AVOID DISPARITY BETWEEN RELEASES**
 

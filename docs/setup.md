@@ -1,29 +1,29 @@
 # Setup
 
 The following is based off tests and rundowns only on \*nix environments and so I can't help
-developer on windows much, but there will be pointers to each accordingly to look for solutions.
+developers on windows machines much, there will however be helpers and pointers to follow to get them working on windows.
 
 ## Setting up dev
 
 ### [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) (nvm-for-windows for Windows)
 
-Once you have nvm install you can use the script `./scripts/nvm_setup` to have nvm to use the current defaults node version of the project and use it for you
+Once you have nvm installed you can use the script `./scripts/nvm_setup` to have nvm install and use the version this codebase has been tested with.
 
-Once done, check if you have the `node` and `npm` working.
+Once done, check if you have `node` and `npm` working.
 
 ```sh
 node -v
-// prints version code like x.x.x
+// prints a version code (eg: v16.14.0)
 ```
 
 ### Database setup
 
 Here you have 2 options
 
-1. one is to do the traditional setup of installing a database server on your system and then using it.
+1. Traditional setup of installing a database server on your system.
 2. Using docker + compose to setup a database for you as necessary, this is a throwaway database so you aren't as worried when you end up deleting the docker images and it's connected volumes and honestly, I prefer this.
 
-To move ahead with the 2nd step ,You'll need to setup docker and `docker-compose` setup on your system.
+To move ahead with the 2nd step, You'll need to setup docker and `docker-compose` on your system.
 
 On a Mac it's as simple as downloading and installing the [docker desktop app](https://www.docker.com/products/docker-desktop) if the desktop app doesn't give you the above commands (`docker` and `docker-compose`) use the documentation to learn on things you can do to set it up manually.
 
@@ -31,7 +31,7 @@ On a Mac it's as simple as downloading and installing the [docker desktop app](h
 
 On a linux, you can use the [same link](https://docs.docker.com/compose)
 
-Now, we use the repository [barelyhuman/adminer-local](https://github.com/barelyhuman/adminer-local) and create a clone of it, anywhere on your system that you can remember is fine, doesn't have to be a part of your code's folder.
+Now, we use the repository [barelyhuman/adminer-local](https://github.com/barelyhuman/adminer-local) and create a clone of it, anywhere on your system that you can remember is fine, doesn't have to be a part of your code's folder either.
 
 ```sh
 git clone https://github.com/barelyhuman/adminer-local
@@ -47,7 +47,7 @@ docker-compose down
 docker-compose down -v
 ```
 
-Post this, you should now be able to open up `localhost:8080` in your browser and be greeted with an Adminer interface that provides you access to the database inside the docker container. The database is exposed so you can contruct a database url assuming you have it setup locally.
+Post this, you should now be able to open `localhost:8080` in your browser and be greeted with an Adminer interface that provides you with access to the database inside the docker container. The database is exposed so you can contruct a database url assuming you have it setup locally.
 
 Check the `docker-compose.yml` in the cloned repo above to see the password and username to create a database url for use with prisma
 
@@ -55,20 +55,18 @@ Check the `docker-compose.yml` in the cloned repo above to see the password and 
 
 Even though I'm not a fan of code-style enforcement(okay maybe not always), I do like everything formatted well enough for me to be able to read when going through it during reviews and not having to handle diffs which exist just because someone decided tabs are better or spaces are better.
 
-So, just for your information, the codebase has `lefthook` and `prettier` rules setup to avoid that.
+So, just for information, the codebase has `lefthook` and `prettier` rules setup to avoid that.
 
-Other than this, there's not much you need to setup but if you are using VSCode the following plugins will make your life a little easier.
+Other than this, there's not much you need to setup but if you are using VSCode the following plugins will make your life a little more easier.
 
-You can use the extension id's in the bracket to search for the exact plugin
+You can use the extension id's in the brackets to search for the exact plugin
 
 - Primsa (Prisma.prisma)
-- Turbo Console Log (ChakrounAnas.turbo-console-log)
-
-## Next up
-
-- [Working with GIT](/docs/working-with-git.md)
+- GraphQL (GraphQL.vscode-graphql)
 
 ## All Docs / Reference
+
+You can use the below documentation to know about the other areas of the codebase
 
 #### Help / Standards
 
