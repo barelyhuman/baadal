@@ -76,7 +76,7 @@ function addFieldResolver(
 	mapping: OptionIdentifierMapping,
 ) {
 	classDefinition.addMethod({
-		name: 'roleLabel',
+		name: mapping.optionField + 'Label',
 		isAsync: true,
 		decorators: [
 			{
