@@ -79,6 +79,7 @@ You can use the extension id's in the bracket to search for the exact plugin
 - [Adding new features](/docs/adding-new-features.md)
 - [Options and adding options](/docs/options-and-adding-options.md)
 - [Generating Client API SDK](/docs/generating-client-api-sdk.md)
+- [Sending Emails](/docs/sending-a-mail.md)
 
 #### Releases
 
