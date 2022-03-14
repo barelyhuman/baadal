@@ -50,3 +50,9 @@ Which leads to the point:
 There's all sorts of other caveats that you should look up before just jumping into using knex but this codebase comes with knex as a fallback client for your DB operations in cases where it's necessary.
 
 You can do so by importing `fallBackDBClient` from `prisma/client` and writing the queries according to `knex` syntax.
+
+### Schema1WithoutSchema2 needs more than one field
+
+There's a bug with prisma+typegraphql setup which will lead to errors when you don't have any fields in the `schema.prisma` model other than relations and `id`.
+
+This can be easily solved by adding the `createdAt` and `updatedAt` mapping for now, once this is fixed in the root libs then then it won't be needed, but this is the current workthrough
